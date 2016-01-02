@@ -22,7 +22,7 @@ while True:
             sys.exit()
     for a in range(64):
         for b in range(random.randint(0,31)):
-            SetPixel(a, 32-b, b*8, b*8, 32-b)
+            SetPixel(a, 32-b, b*8, b*4, 32-b)
     time.sleep(0.05)
     pygame.display.flip()
     screen.fill(black)
