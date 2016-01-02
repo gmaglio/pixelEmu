@@ -1,17 +1,17 @@
 #!/usr/bin/python2.7
 import sys
 import pygame
+import time
+import random
 
 pygame.init()
 
 matrixArea = 64, 32
 screenSize = 640, 320 
 black = 0, 0, 0
-red = 255, 0, 0
-rect = 0, 0, 640/matrixArea[0], 480/matrixArea[1] 
 
-def put_pixel((x, y),(r,g,b)):
-    pygame.draw.rect(screen, (r,g,b), (x, y, 640/matrixArea[0], 480/matrixArea[1]) )
+def SetPixel((x, y),(r,g,b)):
+    pygame.draw.rect(screen, (r,g,b), (x*10, y*10, 10, 10) )
     pygame.display.flip()
 
 screen = pygame.display.set_mode(screenSize)
@@ -20,11 +20,9 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-    for y in range(32):
-        for x in range(64):
-            put_pixel((x,y), (x, y, y))
-
+    for a in range(64):
+        for b in range(random.randint(0,31)):
+            SetPixel((a, 32-b), (255, 255, 255))
     screen.fill(black)
-
 
     
