@@ -7,11 +7,12 @@ import random
 pygame.init()
 
 matrixArea = 64, 32
-screenSize = 640, 320 
+screenSize = 1024, 512 
+scaleValue = screenSize[0]/matrixArea[0], screenSize[1]/matrixArea[1]
 black = 0, 0, 0
 
 def SetPixel((x, y),(r,g,b)):
-    pygame.draw.rect(screen, (r,g,b), (x*10, y*10, 10, 10) )
+    pygame.draw.rect(screen, (r,g,b), (x*scaleValue[0], y*scaleValue[1], scaleValue[0], scaleValue[1]) )
     pygame.display.flip()
 
 screen = pygame.display.set_mode(screenSize)
