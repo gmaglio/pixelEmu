@@ -16,15 +16,14 @@ def SetPixel(x,y,r,g,b):
 
 screen = pygame.display.set_mode(screenSize)
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-    for a in range(64):
-        for b in range(random.randint(0,31)):
-            SetPixel(a, 32-b, b*8, b*4, 32-b)
-    time.sleep(0.05)
-    pygame.display.flip()
-    screen.fill(black)
-
-    
+def renderScreen():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+        for a in range(64):
+            for b in range(random.randint(0,31)):
+                SetPixel(a, 32-b, b*8, b*4, 32-b)
+        time.sleep(0.05)
+        pygame.display.flip()
+        screen.fill(black)
