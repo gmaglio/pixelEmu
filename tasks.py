@@ -5,6 +5,5 @@ from pixelEmu import renderScreen
 app = Celery('tasks', broker='amqp://guest@localhost//', backend='redis://localhost')
 
 @app.task
-def add(x,y):
-    pixelEmu.renderScreen() 
-    return x + y 
+def render():
+    renderScreen() 
